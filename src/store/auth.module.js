@@ -28,12 +28,14 @@ export const auth={
         register({ commit }, user) {
             return AuthService.register(user).then(
                 response => {
+                    console.log("auth.module > register > response", response);
                     commit("registerSuccess");
                     return Promise.resolve(response.data);
                 },
                 error => {
+                    console.log("auth.module > register > error", error);
                     commit("registerFailure");
-                    return Promise.resolve(error);
+                    return Promise.reject(error);
                 }
             );
         }
