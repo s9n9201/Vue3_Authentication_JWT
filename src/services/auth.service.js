@@ -8,10 +8,10 @@ class AuthService {
             username: user.username,
             password: user.password
         }).then(response=>{
-             if (response.data.accessToken) {
-                 localStorage.setItem("user", JSON.stringify(response.data))
-             }
-             return response.data;
+            if (response.data.token) {
+                localStorage.setItem("user", JSON.stringify(response.data))
+            }
+            return response.data;
         });
     }
 
