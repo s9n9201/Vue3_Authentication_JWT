@@ -45,11 +45,11 @@ export const auth={
         },
         loginFailure(state) {
             state.status.loggedIn=false;
-            state.status=null;
+            state.user=null;
         },
         logout(state) {
             state.status.loggedIn=false;
-            state.status=null;
+            state.user=null;
         },
         registerSuccess(state) {
             state.status.loggedIn=false;
