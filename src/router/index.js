@@ -3,8 +3,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
     {
         path: "/",
-        name: "Main",
-        component: ()=>import("../components/Profile"),
+        name: "Home",
+        component: ()=>import("../components/Home"),
     },
     {
         path: "/login",
@@ -21,6 +21,21 @@ const routes = [
         name: "Profile",
         component: ()=>import("../components/Profile")
     },
+    {
+        path: "/user",
+        name: "BoardUser",
+        component: ()=>import("../components/BoardUser")
+    },
+    {
+        path: "/admin",
+        name: "BoardAdmin",
+        component: ()=>import("../components/BoardAdmin")
+    },
+    {
+        path: "/moderator",
+        name: "BoardModerator",
+        component: ()=>import("../components/BoardModerator")
+    },
 ]
 
 const router = createRouter({
@@ -33,6 +48,8 @@ router.beforeEach((to, form , next)=>{
     const loggedIn=localStorage.getItem("user");
     if (!publicPages.includes(to.path) && !loggedIn) {
         next("/login");
+    } else if (to.path=="/login" && loggedIn) {
+        next("/");
     } else {
         next();
     }
