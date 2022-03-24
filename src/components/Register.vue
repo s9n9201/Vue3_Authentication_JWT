@@ -42,12 +42,12 @@
                             <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Sign Up</button>
                         </div>
                     </Form>
-                    <div v-if="message" class="alert" :class="successful?'alert-success':'alert-danger'">
+                    <div v-if="message" class="alert mt-4" :class="successful?'alert-success':'alert-danger'">
                         {{ message }}
                     </div>
                     <div class="text-center mt-5 text-lg fs-4">
                         <p class='text-gray-600'>Already have an account?
-                            <router-link to="/" class="font-bold">Login</router-link>.
+                            <router-link to="/login" class="font-bold">Login</router-link>.
                         </p>
                     </div>
                 </div>

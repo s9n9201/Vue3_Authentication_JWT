@@ -31,6 +31,9 @@
                             </label>
                         </div>
                         <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Log in</button>
+                        <div v-if="message" class="alert alert-danger mt-4">
+                            {{ message }}
+                        </div>
                     </Form>
                     <div class="text-center mt-5 text-lg fs-4">
                         <p class="text-gray-600">Don't have an account? <router-link to="register" class="font-bold">Sign
@@ -70,14 +73,14 @@ export default {
         }
     },
     computed: {
-        loggedIn() {
-            return this.$store.state.auth.status.loggedIn;
-        }
+        // loggedIn() {
+        //     return this.$store.state.auth.status.loggedIn;
+        // }
     },
     created() {
-        if (this.loggedIn) {
-            this.$router.push("/profile");
-        }
+        // if (this.loggedIn) {
+        //     this.$router.push("/");
+        // }
     },
     methods: {
         handleLogin(user) {
