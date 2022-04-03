@@ -6,6 +6,7 @@
 
 <script>
 import UserService from "@/services/user.service";
+import EventBus from "@/common/EventBus";
 export default {
     name: "BoardUser",
     data() {
@@ -20,6 +21,9 @@ export default {
             },
             (error)=>{
                 this.content=(error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+                if (error.response && error.response.status===403) {
+                    EventBus.dispatch("logout");
+                }
             }
         );
     }
