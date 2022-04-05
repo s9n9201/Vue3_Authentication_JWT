@@ -60,7 +60,7 @@ export const auth={
         registerFailure(state) {
             state.status.loggedIn=false;
         },
-        refreshToke(state, accessToken) {
+        refreshToken(state, accessToken) {
             state.status.loggedIn=true;
             state.user={ ...state.user, token: accessToken };
         }
