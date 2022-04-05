@@ -17,6 +17,7 @@ export default {
     mounted() {
         UserService.getUserBoard().then(
             (response)=>{
+                console.log("BoardUser App > ", response.data);
                 this.content=response.data;
             },
             (error)=>{
