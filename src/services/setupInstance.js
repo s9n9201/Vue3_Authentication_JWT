@@ -28,7 +28,9 @@ const setup=(store)=>{
                         const rs=await axiosInstance.post("/auth/refreshtoken", {
                             refreshToken: TokenService.getLocalRefreshToken(),
                         });
-                        const { accessToken }=rs.data;
+                        const { accessToken }=rs.data;  //直接取得這個物件裡面的accessToken的Key Value出來
+                        console.log("axios Interceptors rs.data > ", rs.data);
+                        console.log("axios Interceptors accessToken > ", accessToken);
                         store.dispatch("auth/refreshToken", accessToken);
                         TokenService.updateLocalAccessToken(accessToken);
                         return axiosInstance(originalConfig);
