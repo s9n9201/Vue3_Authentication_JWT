@@ -1,4 +1,5 @@
-import axios from "axios";
+//import axios from "axios";
+import api from "@/services/api";
 // import authHeader from "./auth-header"
 
 const API_URL="http://localhost:8081/api/test/";
@@ -8,16 +9,16 @@ const headerObject={
 
 class UserService {
     getPublicContent() {
-        return axios.get(API_URL+"all");
+        return api.get(API_URL+"all");
     }
     getUserBoard() {
-        return axios.get(API_URL+"user", headerObject);
+        return api.get(API_URL+"user", headerObject);
     }
     getModeratorBoard() {
-        return axios.get(API_URL+"mod", headerObject);
+        return api.get(API_URL+"mod", headerObject);
     }
     getAdminBoard() {
-        return axios.get(API_URL+"admin", headerObject)
+        return api.get(API_URL+"admin", headerObject)
     }
 }
 
